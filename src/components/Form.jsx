@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Form = () => {
     const [indexForm, setIndexForm] = useState(0);
 
-    const form = [
+    const forms = [
         { text: 'Ник: ', value: 'Themms' },
         { text: 'STEAMID: ', value: 'STEAMID_594396743' },
         { text: 'Дата и время: ', value: '' },
@@ -15,50 +15,17 @@ const Form = () => {
         { text: 'Сслыка на ваш стим профиль: ', value: '' },
     ]
 
-    const sections = [
-        { text: 'Ник' },
-        { text: 'STEAMID' },
-        { text: 'Дата и время' },
-        { text: 'Развёрнутое описание' },
-        { text: 'Док-ва' },
-        { text: 'Сслыка на ваш стим профиль' }
-    ]
-
-    console.log(sections)
+    function Formtext() {
+        return (
+            <h1>{forms[indexForm].text}</h1>
+        )
+    }
 
     function changeIndexForm() {
         setIndexForm(indexForm => indexForm + 1)
         console.log(indexForm)
         if (indexForm > 4) {
             setIndexForm(0)
-        }
-    }
-    
-    function CurrentSection() {
-        if (indexForm == 0) {
-            return (
-                <h1>Ник</h1>
-            )
-        } else if (indexForm == 1) {
-            return (
-                <h1>STEAMID</h1>
-            )
-        } else if (indexForm == 2) {
-            return (
-                <h1>Дата и время</h1>
-            )
-        } else if (indexForm == 3) {
-            return (
-                <h1>Развёрнутое описание</h1>
-            )
-        } else if (indexForm == 4) {
-            return (
-                <h1>Док-ва</h1>
-            )
-        } else if (indexForm == 5) {
-            return (
-                <h1>Сслыка на ваш стим профиль</h1>
-            )
         }
     }
 
@@ -78,7 +45,7 @@ const Form = () => {
         >
             <div className='rounded-md w-1/2 h-1/2 p-2'>
                 <ul className="grid content-between h-72 font-black">
-                    {form.map((form, index) => (
+                    {forms.map((form, index) => (
                         <li key={index}>
                             <br />
                             {form.text}
@@ -95,7 +62,7 @@ const Form = () => {
                 </ul>
                 <div className="grid grid-cols-1 gap-1 place-items-center h-20">
                     <div className='mt-3'>
-                        <CurrentSection />
+                        <Formtext/>
                     </div>
                     <input className="rounded-md m-auto w-1/2 border-none" type="text" id="currentsection" />
                     <button className="flex bg-white rounded-md w-1/2 p-1 
