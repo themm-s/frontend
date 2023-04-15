@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Form = () => {
     const [indexForm, setIndexForm] = useState(0);
+    const [inputValue, setInputValue] = useState('');
 
-    const forms = [
-        { text: 'Ник: ', value: 'Themms' },
-        { text: 'STEAMID: ', value: 'STEAMID_594396743' },
+    const [forms, setForms] = useState([
+        { text: 'Ник: ', value: '' },
+        { text: 'STEAMID: ', value: '' },
         { text: 'Дата и время: ', value: '' },
         { text: 'Развёрнутое описание: ', value: '' },
         { text: 'Док-ва: ', value: '' },
-        { text: 'Сслыка на ваш стим профиль: ', value: '' },
-    ]
+        { text: 'Ссылка на ваш стим профиль: ', value: '' },
+    ])
+
+    const [placeHolder, setPlaceHolder] = useState([
+        { text: ''},
+        { text: ' STEAM_0:0:111110000'},
+        { text: ' 01.01.2023'},
+        { text: ''},
+        { text: ''},
+        { text: ''}
+    ])
 
     function Formtext() {
         return (
@@ -21,11 +31,21 @@ const Form = () => {
         )
     }
 
-    function changeIndexForm() {
-        setIndexForm(indexForm => indexForm + 1)
-        console.log(indexForm)
-        if (indexForm > 4) {
-            setIndexForm(0)
+    useEffect(() => {
+        console.log("Forms updated");
+    }, [forms]);
+
+    const handleButtonClick = (index) => {
+        return () => {
+            const newForms = [...forms];
+            newForms[index].value = inputValue;
+            console.log(newForms);
+            setIndexForm(indexForm => indexForm + 1)
+            console.log(indexForm)
+            if (indexForm > 4) {
+                setIndexForm(0)
+            }
+            setInputValue('')
         }
     }
 
@@ -49,7 +69,8 @@ const Form = () => {
                         <li key={index}>
                             <br />
                             {form.text}
-                            <button key={index}
+                            <button
+                                key={index}
                                 type="text"
                                 className="justify-end items-end text-end"
                             >
@@ -62,11 +83,18 @@ const Form = () => {
                 </ul>
                 <div className="grid grid-cols-1 gap-1 place-items-center h-20">
                     <div className='mt-3'>
-                        <Formtext/>
+                        <Formtext />
                     </div>
-                    <input className="rounded-md m-auto w-1/2 border-none" type="text" id="currentsection" />
+                    <input
+                        className="rounded-md m-auto w-1/2 border-none"
+                        type="text"
+                        id="currentsection"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        placeholder={placeHolder[indexForm].text}
+                    />
                     <button className="flex bg-white rounded-md w-1/2 p-1 
-        items-center justify-center" onClick={changeIndexForm}>
+        items-center justify-center" onClick={handleButtonClick(indexForm)}>
                         <FontAwesomeIcon icon={faArrowRight} />
                     </button>
                 </div>

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const options = [
     { value: 'admin', label: 'Жалоба на администратора' },
     { value: 'player', label: 'Жалоба на игрока' },
-    { value: 'appeal', label: 'Заявка на разбан' },
+    { value: 'appeal', label: 'Заявка на разбан' }
 ]
 
 
