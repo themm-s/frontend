@@ -13,10 +13,11 @@ const options = [
 
 
 
-const Begin = () => {
+const Begin = ({ value, setValue }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     function changeIndex() {
+        setValue(value => value + 1)
         setCurrentIndex(currentIndex => currentIndex + 1)
         if (currentIndex > 2) {
             setCurrentIndex(currentIndex => currentIndex = 0)

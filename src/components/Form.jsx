@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Form = () => {
+const Form = ({ value, setValue }) => {
     const [indexForm, setIndexForm] = useState(0);
     const [inputValue, setInputValue] = useState('');
 
@@ -43,6 +43,7 @@ const Form = () => {
             setIndexForm(indexForm => indexForm + 1)
             if (indexForm > 4) {
                 setIndexForm(0)
+                setValue(2)
             }
             setInputValue('')
         }
