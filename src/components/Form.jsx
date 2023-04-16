@@ -22,7 +22,7 @@ const Form = () => {
         { text: ' 01.01.2023'},
         { text: ''},
         { text: ''},
-        { text: ''}
+        { text: ' https://steamcommunity.com/profiles/76561198810663480'}
     ])
 
     function Formtext() {
@@ -39,9 +39,8 @@ const Form = () => {
         return () => {
             const newForms = [...forms];
             newForms[index].value = inputValue;
-            console.log(newForms);
+            console.log(newForms, indexForm);
             setIndexForm(indexForm => indexForm + 1)
-            console.log(indexForm)
             if (indexForm > 4) {
                 setIndexForm(0)
             }
