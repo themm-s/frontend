@@ -15,6 +15,7 @@ const options = [
 
 const Begin = ({ value, setValue }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    console.log(value)
 
     function changeIndex() {
         setValue(value => value + 1)

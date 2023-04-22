@@ -7,6 +7,15 @@ function Main() {
 
   const [stageForm, setStageForm] = useState(0)
 
+  const [forms, setForms] = useState([
+    { text: 'Ник: ', value: '' },
+    { text: 'STEAMID: ', value: '' },
+    { text: 'Дата и время: ', value: '' },
+    { text: 'Развёрнутое описание: ', value: '' },
+    { text: 'Док-ва: ', value: '' },
+    { text: 'Ссылка на ваш стим профиль: ', value: '' },
+])
+
   function ChangeScene() {
     if (stageForm == 0) {
       return (
@@ -14,11 +23,11 @@ function Main() {
       )
     } else if (stageForm == 1) {
       return (
-        <Form value={stageForm} setValue={setStageForm} />
+        <Form value={stageForm} takeForm={forms} setTakeForm={setForms} setValue={setStageForm} />
       )
     } else {
       return (
-        <CopyForm />
+        <CopyForm takeForm={forms} setTakeForm={setForms} />
       )
     }
   }
