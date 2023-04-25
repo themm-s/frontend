@@ -5,7 +5,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-const options = [
+const option = [
     { value: 'admin', label: 'Жалоба на администратора' },
     { value: 'player', label: 'Жалоба на игрока' },
     { value: 'appeal', label: 'Заявка на разбан' }
@@ -13,7 +13,7 @@ const options = [
 
 
 
-const Begin = ({ value, setValue }) => {
+const Begin = ({ value, setValue, options }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     console.log(value)
 
@@ -40,14 +40,18 @@ const Begin = ({ value, setValue }) => {
         place-items-center justify-items-center font-bold rounded-xl"
         >
             <Select
-                options={options}
+                options={option}
                 className="w-1/5 h-[38px]"
                 placeholder="Жалоба на..."
             />
-            <button className="flex bg-white rounded-xl ml-2 
+            <button
+                className="flex bg-white rounded-xl ml-2 
         h-[38px] w-10 p-2 
-        items-center justify-center" onClick={changeIndex}>
-                <FontAwesomeIcon icon={faArrowRight} />
+        items-center justify-center"
+                onClick={changeIndex}>
+                <FontAwesomeIcon
+                    icon={faArrowRight}
+                />
             </button>
         </motion.div>
     );
