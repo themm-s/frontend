@@ -14,32 +14,43 @@ function Main() {
     { text: 'Развёрнутое описание: ', value: '' },
     { text: 'Док-ва: ', value: '' },
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
-])
+  ])
 
   function ChangeScene() {
     if (stageForm == 0) {
       return (
-        <Begin value={stageForm} setValue={setStageForm} />
+        <Begin
+          value={stageForm}
+          setValue={setStageForm}
+        />
       )
     } else if (stageForm == 1) {
       return (
-        <Form value={stageForm} takeForm={forms} setTakeForm={setForms} setValue={setStageForm} />
+        <Form value={stageForm}
+          takeForm={forms}
+          setTakeForm={setForms}
+          setValue={setStageForm}
+        />
       )
     } else {
       return (
-        <CopyForm takeForm={forms} setTakeForm={setForms} />
+        <CopyForm
+          takeForm={forms}
+          setTakeForm={setForms}
+        />
       )
     }
   }
 
   return (
     <>
-      <div className="flex justify-center ml-1/2 items-center h-screen w-screen 
+      <div className="flex justify-center ml-1/2 
+        items-center h-screen w-screen 
         align-middle 
         bg-gradient-to-r from-indigo-600 to-pink-500 
         place-items-center justify-items-center font-bold 
         rounded-xl">
-          <ChangeScene/>
+        <ChangeScene />
       </div>
     </>
 

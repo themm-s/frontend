@@ -5,10 +5,10 @@ function CopyForm({ takeForm, setTakeForm }) {
 
     return (
         <>
-            <div>
+            <div className="p-5 bg-white rounded-2xl">
                 {takeForm.map((form, index) => (
+                    <>
                     <h1 key={index}>
-                        <br />
                         {form.text}
                         <button
                             key={index}
@@ -18,6 +18,8 @@ function CopyForm({ takeForm, setTakeForm }) {
                             {form.value}
                         </button>
                     </h1>
+                    <br/>
+                    </>
                 ))}
 
             </div>
