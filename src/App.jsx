@@ -22,11 +22,14 @@ function Main() {
         <Begin
           value={stageForm}
           setValue={setStageForm}
+          setTakeForm={setForms}
+          takeForm={forms}
         />
       )
     } else if (stageForm == 1) {
       return (
-        <Form value={stageForm}
+        <Form
+          value={stageForm}
           takeForm={forms}
           setTakeForm={setForms}
           setValue={setStageForm}
@@ -53,7 +56,6 @@ function Main() {
         <ChangeScene />
       </div>
     </>
-
   )
 }
 

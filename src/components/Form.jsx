@@ -58,8 +58,7 @@ const Form = ({ value, setValue, takeForm, setTakeForm }) => {
                     <ul className="grid content-between h-72 font-black">
                         {takeForm.map((form, index) => (
                             <li key={index}>
-                                <br />
-                                {form.text}
+                                {index + 1}. {form.text}
                                 <button
                                     key={index}
                                     type="text"
@@ -78,6 +77,7 @@ const Form = ({ value, setValue, takeForm, setTakeForm }) => {
                         </div>
                         <input
                             className="rounded-md m-auto w-1/2 border-none"
+                            autoComplete="off"
                             type="text"
                             id="currentsection"
                             value={inputValue}
@@ -97,22 +97,3 @@ const Form = ({ value, setValue, takeForm, setTakeForm }) => {
 
 
 export default Form;
-
-
-{/* <ul className='rounded-md w-1/3 h-1/2'>
-                {forms.map((form, index) => (
-                            <li key={index}>
-                                <br />
-                                {form.text}
-                                <button
-                                    key={index}
-                                    type="text"
-                                    className="justify-end items-end text-end"
-                                >  
-                                    {form.value}
-                                    {index}
-                                </button>
-                                <hr /> 
-                            </li>
-                        ))}
-            </ul> */}

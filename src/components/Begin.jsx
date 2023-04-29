@@ -1,28 +1,46 @@
 import { motion } from "framer-motion"
 import React, { useState } from "react";
-import Select from "react-select";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "./Button";
 
 
-const option = [
-    { value: 'admin', label: 'Жалоба на администратора' },
-    { value: 'player', label: 'Жалоба на игрока' },
-    { value: 'appeal', label: 'Заявка на разбан' }
-]
-
-
-
-const Begin = ({ value, setValue, options }) => {
+const Begin = ({ value, setValue, options, takeForm, setTakeForm }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const admin = [
+        { text: 'Ник Администратора: ', value: '' },
+        { text: 'STEAMID Администратора: ', value: '' },
+        { text: 'Дата и время: ', value: '' },
+        { text: 'Развёрнутое описание проблемы и нарушений Администратора: ', value: '' },
+        { text: 'Док-ва: ', value: '' },
+        { text: 'Ссылка на ваш стим профиль: ', value: '' },
+      ]
+
+    const appeal = [
+        { text: 'Ваш Ник: ', value: '' },
+        { text: 'Ваш STEAMID: ', value: '' },
+        { text: 'Дата и время: ', value: '' },
+        { text: 'Развёрнутое описание: ', value: '' },
+        { text: 'Док-ва вашей невиновности: ', value: '' },
+        { text: 'Ссылка на ваш стим профиль: ', value: '' },
+      ]
     console.log(value)
 
     function changeIndex() {
+        if (event.target.value == 'admin') {
+            setTakeForm(admin)
+        } else if (event.target.value == 'appeal') {
+            setTakeForm(appeal)
+        }
         setValue(value => value + 1)
         setCurrentIndex(currentIndex => currentIndex + 1)
         if (currentIndex > 2) {
             setCurrentIndex(currentIndex => currentIndex = 0)
         }
+    }
+
+    function selectOption() {
+        console.log(this.value)
     }
 
     return (
@@ -39,20 +57,24 @@ const Begin = ({ value, setValue, options }) => {
         bg-gradient-to-r from-indigo-600 to-pink-500 
         place-items-center justify-items-center font-bold rounded-xl"
         >
-            <Select
-                options={option}
-                className="w-1/5 h-[38px]"
-                placeholder="Жалоба на..."
-            />
-            <button
-                className="flex bg-white rounded-xl ml-2 
-        h-[38px] w-10 p-2 
-        items-center justify-center"
-                onClick={changeIndex}>
-                <FontAwesomeIcon
-                    icon={faArrowRight}
-                />
-            </button>
+            <Button
+                onClick={changeIndex}
+                value='admin'
+            >
+                Жалоба на администратора
+            </Button>
+            <Button
+                onClick={changeIndex}
+                value='player'
+            >
+                Жалоба на игрока
+            </Button>
+            <Button
+                onClick={changeIndex}
+                value='appeal'
+            >
+                Заявка на разбан
+            </Button>
         </motion.div>
     );
 };
