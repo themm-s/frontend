@@ -1,7 +1,5 @@
 import { motion } from "framer-motion"
 import React, { useState } from "react";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
 
 
