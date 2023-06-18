@@ -1,12 +1,12 @@
 import Begin from "./components/Begin";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "./components/Form";
 import CopyForm from "./components/CopyForm";
 
-function Main() {
+function App() {
 
-  const [stageForm, setStageForm] = useState(0)
-
+  const [stageForm, setStageForm] = useState(0);
+  const [todoItems, setTodoItems] = useState([]);
   const [forms, setForms] = useState([
     { text: 'Ник: ', value: '' },
     { text: 'STEAMID: ', value: '' },
@@ -14,36 +14,41 @@ function Main() {
     { text: 'Развёрнутое описание: ', value: '' },
     { text: 'Док-ва: ', value: '' },
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
-  ])
+  ]);
+
+  useEffect(() => {
+    fetch('http://localhost:3010/api/form')
+      .then((res) => res.json())
+      .then((result) => setTodoItems(result.data));
+  }, []);
 
   function ChangeScene() {
-    if (stageForm == 0) {
-      return (
-        <Begin
-          value={stageForm}
-          setValue={setStageForm}
-          setTakeForm={setForms}
-          takeForm={forms}
-        />
-      )
-    } else if (stageForm == 1) {
-      return (
-        <Form
-          value={stageForm}
-          takeForm={forms}
-          setTakeForm={setForms}
-          setValue={setStageForm}
-        />
-      )
-    } else {
-      return (
-        <CopyForm
-          takeForm={forms}
-          setTakeForm={setForms}
-        />
-      )
-    }
+    const components = [
+      <Begin
+        value={stageForm}
+        setValue={setStageForm}
+        setTakeForm={setForms}
+        takeForm={forms}
+      />,
+      <Form
+        value={stageForm}
+        takeForm={forms}
+        setTakeForm={setForms}
+        setValue={setStageForm}
+      />,
+      <CopyForm
+        value={stageForm}
+        takeForm={forms}
+        setTakeForm={setForms}
+        setValue={setStageForm}
+      />
+    ];
+    return components[stageForm];
   }
+
+  useEffect(() => {
+    console.log(stageForm);
+  }, [stageForm]);
 
   return (
     <>
@@ -52,11 +57,11 @@ function Main() {
         align-middle 
         bg-gradient-to-r from-indigo-600 to-pink-500 
         place-items-center justify-items-center font-bold 
-        rounded-xl">
+        rounded-xl" key={5}>
         <ChangeScene />
       </div>
     </>
-  )
+  );
 }
 
-export default Main;
+export default App;
