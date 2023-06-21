@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
+
 import Button from "./Button";
 
 
@@ -10,6 +11,15 @@ const Begin = ({ value, setValue, setTakeForm }) => {
     { text: 'STEAMID Администратора: ', value: '' },
     { text: 'Дата и время: ', value: '' },
     { text: 'Развёрнутое описание проблемы и нарушений Администратора: ', value: '' },
+    { text: 'Док-ва: ', value: '' },
+    { text: 'Ссылка на ваш стим профиль: ', value: '' },
+  ];
+
+  const player = [
+    { text: 'Ник: ', value: '' },
+    { text: 'STEAMID: ', value: '' },
+    { text: 'Дата и время: ', value: '' },
+    { text: 'Развёрнутое описание: ', value: '' },
     { text: 'Док-ва: ', value: '' },
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
   ];
@@ -29,6 +39,8 @@ const Begin = ({ value, setValue, setTakeForm }) => {
       setTakeForm(admin);
     } else if (event.target.value == 'appeal') {
       setTakeForm(appeal);
+    } else {
+      setTakeForm(player);
     }
     setValue(value => value + 1);
     setCurrentIndex(currentIndex => currentIndex + 1);
