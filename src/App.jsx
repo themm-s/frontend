@@ -1,7 +1,8 @@
+import React, { useEffect, useState } from "react";
+
 import Begin from "./components/Begin";
-import React, { useState, useEffect } from "react";
-import Form from "./components/Form";
 import CopyForm from "./components/CopyForm";
+import Form from "./components/MainForm";
 
 function App() {
 
@@ -16,11 +17,11 @@ function App() {
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
   ]);
 
-  useEffect(() => {
-    fetch('http://localhost:3010/api/form')
-      .then((res) => res.json())
-      .then((result) => setTodoItems(result.data));
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:3010/api/form')
+  //     .then((res) => res.json())                      ..... В разработке логирование
+  //     .then((result) => setTodoItems(result.data));
+  // }, []);
 
   function ChangeScene() {
     const components = [
