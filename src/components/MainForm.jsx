@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from "framer-motion";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 
-const Form = ({ value, setValue, takeForm, setTakeForm }) => {
+const Form = ({ setValue, takeForm }) => {
   const [indexForm, setIndexForm] = useState(0);
   const [inputValue, setInputValue] = useState('');
 
-  const [placeHolder, setPlaceHolder] = useState([
-    { text: '' },
+  const placeHolder = useState([
+    { text: ' Ivan' },
     { text: ' STEAM_0:0:111110000' },
     { text: ' 01.01.2023' },
-    { text: '' },
-    { text: '' },
+    { text: ' Просто так убил' },
+    { text: ' *Ссылка на ютуб*' },
     { text: ' https://steamcommunity.com/profiles/76561198810663480' }
   ]);
 
@@ -30,7 +30,6 @@ const Form = ({ value, setValue, takeForm, setTakeForm }) => {
     return () => {
       const newForms = [...takeForm];
       newForms[index].value = inputValue;
-      // console.log(newForms, indexForm);
       setIndexForm(indexForm => indexForm + 1);
       if (indexForm > 4) {
         setIndexForm(0);
@@ -91,9 +90,7 @@ const Form = ({ value, setValue, takeForm, setTakeForm }) => {
         </div>
       </div>
     </motion.div>
-
   );
 };
-
 
 export default Form;

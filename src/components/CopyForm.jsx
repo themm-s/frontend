@@ -5,16 +5,13 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import { useState } from "react";
 
-function CopyForm({ takeForm, setTakeForm, value, setValue }) {
+function CopyForm({ takeForm, setValue }) {
   const buttonRef = useRef(null);
-  // console.log(takeForm)
-  // console.log(value)
   const [showText, setShowText] = useState(false);
   const arrSort = takeForm.map((obj, index) => `${index + 1}. ${obj.text} ${obj.value}
     `);
 
   function copyText() {
-    const copy = document.getElementById('copy').innerText;
     navigator.clipboard.writeText(arrSort.join(''));
     setShowText(true);
     setTimeout(() => {
@@ -30,10 +27,6 @@ function CopyForm({ takeForm, setTakeForm, value, setValue }) {
     console.log(buttonRef.current);
   }, []);
 
-  // console.log(document.getElementById('copy'))
-
-  // console.log(arrSort.join(''))
-
   return (
     <>
       <div id='copy' className="p-5 bg-white rounded-2xl w-1/2">
@@ -43,7 +36,6 @@ function CopyForm({ takeForm, setTakeForm, value, setValue }) {
               {index + 1}. {form.text}
               <button
                 type="text"
-
                 className="break-words justify-end items-end text-end"
               >
                 {form.value}

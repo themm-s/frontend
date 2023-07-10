@@ -7,7 +7,6 @@ import Form from "./components/MainForm";
 function App() {
 
   const [stageForm, setStageForm] = useState(0);
-  const [todoItems, setTodoItems] = useState([]);
   const [forms, setForms] = useState([
     { text: 'Ник: ', value: '' },
     { text: 'STEAMID: ', value: '' },
@@ -17,30 +16,18 @@ function App() {
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
   ]);
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3010/api/form')
-  //     .then((res) => res.json())                      ..... В разработке логирование
-  //     .then((result) => setTodoItems(result.data));
-  // }, []);
-
   function ChangeScene() {
     const components = [
       <Begin
-        value={stageForm}
         setValue={setStageForm}
         setTakeForm={setForms}
-        takeForm={forms}
       />,
       <Form
-        value={stageForm}
         takeForm={forms}
-        setTakeForm={setForms}
         setValue={setStageForm}
       />,
       <CopyForm
-        value={stageForm}
         takeForm={forms}
-        setTakeForm={setForms}
         setValue={setStageForm}
       />
     ];

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
-import Button from "./Button";
+import Button from "./Button/Button";
 
 
-const Begin = ({ value, setValue, setTakeForm }) => {
+const Begin = ({ setValue, setTakeForm }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const admin = [
     { text: 'Ник Администратора: ', value: '' },
@@ -32,7 +32,6 @@ const Begin = ({ value, setValue, setTakeForm }) => {
     { text: 'Док-ва вашей невиновности: ', value: '' },
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
   ];
-  // console.log(value)
 
   function changeIndex() {
     if (event.target.value == 'admin') {
