@@ -36,8 +36,7 @@ function CopyForm({ takeForm, setValue }) {
               {index + 1}. {form.text}
               <button
                 type="text"
-                className="break-words justify-end items-end text-end"
-              >
+                className="break-words justify-end items-end text-end">
                 {form.value}
 
               </button>
