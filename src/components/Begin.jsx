@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import Button from "./Button/Button";
 
 
-const Begin = ({ setValue, setTakeForm }) => {
+export const Begin = ({ setValue, setTakeForm }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const admin = [
     { text: 'Ник Администратора: ', value: '' },
@@ -83,5 +83,3 @@ const Begin = ({ setValue, setTakeForm }) => {
     </motion.div>
   );
 };
-
-export default Begin;

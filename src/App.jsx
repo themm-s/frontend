@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import Begin from "./components/Begin";
-import CopyForm from "./components/CopyForm";
-import Form from "./components/MainForm";
+import { Begin } from "./components/Begin";
+import { CopyForm } from "./components/CopyForm";
+import { Form } from "./components/MainForm";
 
-function App() {
+export function App() {
 
   const [stageForm, setStageForm] = useState(0);
   const [forms, setForms] = useState([
@@ -51,5 +51,3 @@ function App() {
     </>
   );
 }
-
-export default App;

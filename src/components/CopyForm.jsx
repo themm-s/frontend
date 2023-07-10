@@ -1,11 +1,8 @@
 import { faRepeat } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { useEffect } from "react";
-import { useRef } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-function CopyForm({ takeForm, setValue }) {
+export function CopyForm({ takeForm, setValue }) {
   const buttonRef = useRef(null);
   const [showText, setShowText] = useState(false);
   const arrSort = takeForm.map((obj, index) => `${index + 1}. ${obj.text} ${obj.value}
@@ -56,5 +53,3 @@ function CopyForm({ takeForm, setValue }) {
     </>
   );
 };
-
-export default CopyForm;

@@ -1,13 +1,13 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-const Form = ({ setValue, takeForm }) => {
+export const Form = ({ setValue, takeForm }) => {
   const [indexForm, setIndexForm] = useState(0);
   const [inputValue, setInputValue] = useState('');
 
-  const placeHolder = useState([
+  const [placeHolder] = useState([
     { text: ' Ivan' },
     { text: ' STEAM_0:0:111110000' },
     { text: ' 01.01.2023' },
@@ -92,5 +92,3 @@ const Form = ({ setValue, takeForm }) => {
     </motion.div>
   );
 };
-
-export default Form;
