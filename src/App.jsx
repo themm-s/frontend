@@ -45,7 +45,7 @@ export function App() {
         bg-gradient-to-r from-indigo-600 to-pink-500 
         place-items-center justify-items-center font-bold " key={5}>
         <ChangeScene />
-        <h1 className="absolute bottom-0">Created By <a href="https:/t.me/themm_s" className="underline text-blue-400">Themms (Telegram)</a></h1>
+        <h1 className="absolute bottom-0">Created By <a href="https://t.me/themm_s" className="underline text-blue-400">Themms (Telegram)</a></h1>
       </div>
     </>
   );

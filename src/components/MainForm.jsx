@@ -38,6 +38,15 @@ export const Form = ({ setValue, takeForm }) => {
     };
   };
 
+  const backButton = () => {
+    if (indexForm == 0) {
+      return;
+    } else {
+      setIndexForm(indexForm => indexForm - 1);
+      setInputValue('');
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
@@ -83,7 +92,7 @@ export const Form = ({ setValue, takeForm }) => {
           />
           <div className="flex w-1/2 gap-5">
             <button className="w-full hover:bg-fuchsia-200 bg-white rounded-md p-1 
-        items-center justify-center" onClick={() => { setIndexForm(indexForm - 1); setInputValue(''); }}>
+        items-center justify-center" onClick={() => backButton()}>
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
 
