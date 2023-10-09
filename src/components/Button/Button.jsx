@@ -8,7 +8,7 @@ const Button = forwardRef(
     return (
       <button
         ref={ref}
-        className={`flex hover:bg-fuchsia-200 bg-white rounded-xl ml-2 
+        className={`flex transition hover:-translate-y-2 duration-500 shadow-lg border-black ease-in-out hover:bg-fuchsia-200 hover:bg-opacity-50 rounded-xl ml-2 
         h-[38px] w-50 p-2 
         items-center justify-center ${className ?? ''}`}
         {...props}

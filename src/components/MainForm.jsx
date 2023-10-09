@@ -71,7 +71,7 @@ export const Form = ({ setValue, takeForm }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
+      initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
         duration: 0.8,
@@ -82,8 +82,9 @@ export const Form = ({ setValue, takeForm }) => {
         align-middle
         place-items-center justify-items-center font-bold rounded-xl"
     >
-      <div className='rounded-md w-1/2 h-1/2 p-2'>
-        <ul className="grid content-between h-72 font-black">
+      <div className='rounded-md w-full h-full p-2'>
+        <ul className="flex flex-col justify-around h-1/2 font-black 
+        shadow-xl m-3 p-5 rounded">
           {takeForm.map((form, index) => (
             <li key={index}>
               {index + 1}. {form.text}
@@ -94,37 +95,35 @@ export const Form = ({ setValue, takeForm }) => {
               >
                 {form.value}
               </button>
-              <hr />
+
             </li>
           ))}
-
         </ul>
         <div className="grid grid-cols-1 gap-1 place-items-center h-20">
-          <div className='mt-3'>
+          <div className='mt-10'>
             <Formtext />
           </div>
           <input
-            className="rounded-lg m-auto w-1/2 border-none p-2"
+            className="rounded-lg m-auto w-1/2 p-2 bg-white bg-opacity-50 placeholder:text-black placeholder:text-opacity-40"
             autoComplete="off"
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder={placeHolder[indexForm]?.text}
           />
-          <div className="flex w-1/2 gap-5">
-            <button className="w-full hover:bg-fuchsia-200 bg-white rounded-md p-1 
+          <div className="flex w-1/2 gap-3">
+            <button className="w-1/2 hover:bg-fuchsia-200 shadow-lg hover:-translate-x-1 bg-white transition duration-300 bg-opacity-20 rounded-md p-1 
         items-center justify-center" onClick={() => backButton()}>
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
-
-            <button className="hover:bg-fuchsia-200 bg-white rounded-md w-full p-1 
+            <button className="hover:bg-fuchsia-200  hover:translate-x-1 shadow-lg bg-white transition duration-300 bg-opacity-20 rounded-md w-full p-1 
         items-center justify-center" onClick={handleButtonClick(indexForm)}>
               <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
-          <button className="hover:bg-indigo-400 mt-5 bg-indigo-500 rounded-md w-1/2 p-1 
+          <button className="hover:bg-indigo-400 hover:text-white mt-5 shadow-md bg-indigo-500 rounded-full transition transform hover:rotate-180 ease-in-out duration-500 w-8 h-8 
         items-center justify-center" onClick={() => setValue(0)}>
-            <FontAwesomeIcon icon={faRepeat} />
+            <FontAwesomeIcon className="" icon={faRepeat} />
           </button>
         </div>
       </div>
