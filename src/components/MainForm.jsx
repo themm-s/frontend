@@ -112,16 +112,19 @@ export const Form = ({ setValue, takeForm }) => {
             placeholder={placeHolder[indexForm]?.text}
           />
           <div className="flex w-1/2 gap-3">
-            <button className="w-1/2 hover:bg-fuchsia-200 shadow-lg hover:-translate-x-1 bg-white transition duration-300 bg-opacity-20 rounded-md p-1 
+            <button className="w-full hover:bg-fuchsia-200 shadow-lg hover:-translate-x-1 bg-white 
+            transition duration-300 bg-opacity-20 rounded-md p-1 
         items-center justify-center" onClick={() => backButton()}>
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
-            <button className="hover:bg-fuchsia-200  hover:translate-x-1 shadow-lg bg-white transition duration-300 bg-opacity-20 rounded-md w-full p-1 
-        items-center justify-center" onClick={handleButtonClick(indexForm)}>
+            <button className="hover:bg-fuchsia-200 hover:translate-x-1 shadow-lg bg-white 
+            transition duration-300 bg-opacity-20 rounded-md ml-auto w-full p-1 
+        items-center" onClick={handleButtonClick(indexForm)}>
               <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
-          <button className="hover:bg-indigo-400 hover:text-white mt-5 shadow-md bg-indigo-500 rounded-full transition transform hover:rotate-180 ease-in-out duration-500 w-8 h-8 
+          <button className="hover:bg-indigo-400 hover:text-white mt-5 shadow-md bg-indigo-500 
+          rounded-full transition transform hover:rotate-180 ease-in-out duration-500 w-8 h-8 
         items-center justify-center" onClick={() => setValue(0)}>
             <FontAwesomeIcon className="" icon={faRepeat} />
           </button>
