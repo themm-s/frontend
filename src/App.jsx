@@ -45,16 +45,6 @@ export function App() {
         align-middle 
         bg-gradient-to-r from-indigo-600 to-pink-500 
         place-items-center justify-items-center font-bold " key={5}>
-        <div id="updates" className="absolute text-center text-lg rounded border m-5 p-2 text-gray-200 top-0 left-0 w-1/2 md:w-1/6 shadow-xl h-1/3">
-          Список недавних обновлений
-          <ul className="mt-5 text-sm">
-            <li>1. Обновление UI дизайна</li>
-            <li>2. Фикс ошибок</li>
-          </ul>
-          <h5 className="absolute text-xs bottom-0 opacity-70 mb-2 rounded-full p-2">
-            При возникновении ошибок писать в тг <a href="https://t.me/themm_s" className="underline text-blue-400 hover:text-white duration-150">Themms</a>
-          </h5>
-        </div>
         <ChangeScene />
         <h1 className="absolute bottom-0 opacity-70 mb-2 rounded-full p-2">Created By <a href="https://t.me/themm_s" className="underline text-blue-400 hover:text-white duration-150">Themms (Telegram)</a></h1>
       </div>
