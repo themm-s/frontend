@@ -35,7 +35,6 @@ export function App() {
   }
 
   useEffect(() => {
-    console.log(stageForm);
   }, [stageForm]);
 
   return (

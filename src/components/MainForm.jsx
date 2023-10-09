@@ -23,7 +23,6 @@ export const Form = ({ setValue, takeForm }) => {
   }
 
   useEffect(() => {
-    console.log("Forms updated");
   }, [takeForm]);
 
   const handleButtonClick = (index) => {
