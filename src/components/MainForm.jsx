@@ -18,17 +18,25 @@ export const Form = ({ setValue, takeForm }) => {
 
   function Formtext() {
     return (
-      <h1>{takeForm[indexForm].text}</h1>
+      <h1>{takeForm[indexForm]?.text}</h1>
     );
   }
 
   useEffect(() => {
-  }, [takeForm]);
+    if (indexForm > 5) {
+      setIndexForm(0);
+      setValue(2);
+    }
+  }, [takeForm, indexForm]);
 
   const handleButtonClick = (index) => {
     return () => {
       const newForms = [...takeForm];
-      newForms[index].value = inputValue;
+      if (inputValue != undefined) {
+        newForms[index].value = inputValue;
+      } else {
+        console.log(undefined);
+      }
       setIndexForm(indexForm => indexForm + 1);
       if (indexForm > 4) {
         setIndexForm(0);
@@ -46,6 +54,20 @@ export const Form = ({ setValue, takeForm }) => {
       setInputValue('');
     }
   };
+
+  const keydownHandler = ({ key }) => {
+    switch (key) {
+      case 'Enter':
+        handleButtonClick(indexForm)();
+        break;
+      default:
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', keydownHandler);
+    return () => document.removeEventListener('keydown', keydownHandler);
+  });
 
   return (
     <motion.div
@@ -88,7 +110,7 @@ export const Form = ({ setValue, takeForm }) => {
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder={placeHolder[indexForm].text}
+            placeholder={placeHolder[indexForm]?.text}
           />
           <div className="flex w-1/2 gap-5">
             <button className="w-full hover:bg-fuchsia-200 bg-white rounded-md p-1 
