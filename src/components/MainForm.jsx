@@ -79,8 +79,7 @@ export const Form = ({ setValue, takeForm }) => {
         ease: [0, 0.71, 0.2, 1.01]
       }}
       className="flex justify-center ml-1/2 items-center h-screen w-screen 
-        align-middle 
-        bg-gradient-to-r from-indigo-600 to-pink-500 
+        align-middle
         place-items-center justify-items-center font-bold rounded-xl"
     >
       <div className='rounded-md w-1/2 h-1/2 p-2'>
