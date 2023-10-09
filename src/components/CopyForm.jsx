@@ -1,12 +1,11 @@
 import { faRepeat } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export function CopyForm({ takeForm, setValue }) {
-  const buttonRef = useRef(null);
   const [showText, setShowText] = useState(false);
   const arrSort = takeForm.map((obj, index) => `${index + 1}. ${obj.text} ${obj.value}
-    `);
+`);
 
   function copyText() {
     navigator.clipboard.writeText(arrSort.join(''));
@@ -20,10 +19,6 @@ export function CopyForm({ takeForm, setValue }) {
     setValue(0);
   }
 
-  useEffect(() => {
-    console.log(buttonRef.current);
-  }, []);
-
   return (
     <>
       <div id='copy' className="p-5 bg-white rounded-2xl w-1/2">
@@ -36,7 +31,6 @@ export function CopyForm({ takeForm, setValue }) {
                 className="break-words justify-end items-end text-end"
               >
                 {form.value}
-
               </button>
             </h1>
             <hr />
@@ -47,8 +41,9 @@ export function CopyForm({ takeForm, setValue }) {
           items-center text-center border-violet-500 
           align-middle' onClick={copyText}>
           Копировать
-        </div> <FontAwesomeIcon className='hover:cursor-pointer' onClick={repeatForm} icon={faRepeat} />
-        {showText && <p>Текст скопирован!</p>}
+        </div>
+        <FontAwesomeIcon className='flex m-auto w-1/3 rounded-full bg-indigo-500 p-2 mt-3 hover:cursor-pointer' onClick={repeatForm} icon={faRepeat} />
+        {showText && <p className="text-center">Текст скопирован!</p>}
       </div>
     </>
   );

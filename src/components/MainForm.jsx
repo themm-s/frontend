@@ -1,4 +1,4 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faRepeat } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -75,17 +75,27 @@ export const Form = ({ setValue, takeForm }) => {
             <Formtext />
           </div>
           <input
-            className="rounded-md m-auto w-1/2 border-none"
+            className="rounded-lg m-auto w-1/2 border-none p-2"
             autoComplete="off"
             type="text"
-            id="currentsection"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder={placeHolder[indexForm].text}
           />
-          <button className="flex hover:bg-fuchsia-200 bg-white rounded-md w-1/2 p-1 
+          <div className="flex w-1/2 gap-5">
+            <button className="w-full hover:bg-fuchsia-200 bg-white rounded-md p-1 
+        items-center justify-center" onClick={() => { setIndexForm(indexForm - 1); setInputValue(''); }}>
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
+
+            <button className="hover:bg-fuchsia-200 bg-white rounded-md w-full p-1 
         items-center justify-center" onClick={handleButtonClick(indexForm)}>
-            <FontAwesomeIcon icon={faArrowRight} />
+              <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+          </div>
+          <button className="hover:bg-indigo-400 mt-5 bg-indigo-500 rounded-md w-1/2 p-1 
+        items-center justify-center" onClick={() => setValue(0)}>
+            <FontAwesomeIcon icon={faRepeat} />
           </button>
         </div>
       </div>

@@ -44,8 +44,7 @@ export function App() {
         items-center h-screen w-screen 
         align-middle 
         bg-gradient-to-r from-indigo-600 to-pink-500 
-        place-items-center justify-items-center font-bold 
-        rounded-xl" key={5}>
+        place-items-center justify-items-center font-bold " key={5}>
         <ChangeScene />
       </div>
     </>
