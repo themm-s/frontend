@@ -5,3 +5,24 @@
 html {
   background-color: #000;
 }
+
+#updates {
+  transition: all;
+  animation: fade-in 2s infinite ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+#updates:hover {
+  animation: none;
+}
