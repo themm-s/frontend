@@ -18,7 +18,7 @@ export const Form = ({ setValue, takeForm }) => {
 
   function Formtext() {
     return (
-      <h1>{takeForm[indexForm]?.text}</h1>
+      <h1 className="text-gray-200">{takeForm[indexForm]?.text}</h1>
     );
   }
 
@@ -83,7 +83,7 @@ export const Form = ({ setValue, takeForm }) => {
         place-items-center justify-items-center font-bold rounded-xl"
     >
       <div className='rounded-md w-full h-full p-2'>
-        <ul className="flex flex-col justify-around h-1/2 font-black 
+        <ul className="flex flex-col text-gray-200 justify-around h-1/2 font-black 
         shadow-xl m-3 p-5 rounded">
           {takeForm.map((form, index) => (
             <li key={index}>
