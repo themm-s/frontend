@@ -42,7 +42,9 @@ export function CopyForm({ takeForm, setValue }) {
           align-middle' onClick={copyText}>
           Копировать
         </button>
-        <FontAwesomeIcon className='flex m-auto w-15 rounded-full transition transform hover:rotate-180 ease-in-out duration-500 
+        <FontAwesomeIcon className='flex m-auto w-15 rounded-full 
+        transition transform hover:rotate-180 
+        ease-in-out duration-500 
         bg-opacity-50 hover:text-black
         bg-indigo-500 hover:bg-indigo-400 p-2 mt-3 
         hover:cursor-pointer' onClick={repeatForm} icon={faRepeat} />
