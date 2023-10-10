@@ -8,10 +8,10 @@ html {
 
 #updates {
   transition: all;
-  animation: fade-in 2s infinite ease-in-out;
+  animation: update 3s infinite ease-out;
 }
 
-@keyframes fade-in {
+@keyframes update {
   0% {
     transform: translateY(-10px);
   }
