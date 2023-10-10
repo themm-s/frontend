@@ -63,7 +63,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
         place-items-center justify-items-center font-bold rounded-xl"
     >
       <div id="updates" className="absolute text-center text-lg rounded border m-5 p-2 text-gray-200 top-0 left-0 w-1/2 md:w-1/6 shadow-xl h-1/3">
-        Список недавних обновлений
+        <h1>Список недавних обновлений</h1>
         <ul className="mt-5 text-sm space-y-1">
           {updates.map((update, index) => {
             return (
