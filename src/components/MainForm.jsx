@@ -78,7 +78,7 @@ export const Form = ({ setValue, takeForm }) => {
         delay: 0.5,
         ease: [0, 0.71, 0.2, 1.01]
       }}
-      className="flex justify-center ml-1/2 items-center h-screen w-screen 
+      className="flex select-none justify-center ml-1/2 items-center h-screen w-screen 
         align-middle
         place-items-center justify-items-center font-bold rounded-xl"
     >
@@ -104,7 +104,7 @@ export const Form = ({ setValue, takeForm }) => {
             <Formtext />
           </div>
           <input
-            className="rounded-lg m-auto w-1/2 p-2 bg-white bg-opacity-50 placeholder:text-black placeholder:text-opacity-40"
+            className="rounded-lg outline-none m-auto w-1/2 p-2 bg-white bg-opacity-50 placeholder:text-black placeholder:text-opacity-40"
             autoComplete="off"
             type="text"
             value={inputValue}
