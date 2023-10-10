@@ -21,7 +21,7 @@ export function CopyForm({ takeForm, setValue }) {
 
   return (
     <>
-      <div id='copy' className="p-7 bg-white text-gray-200 bg-opacity-10 rounded-2xl w-1/2 shadow-xl shadow-gray-800">
+      <div id='copy' className="flex  flex-col p-7 bg-white text-gray-200 bg-opacity-10 rounded-2xl w-3/6 shadow-xl shadow-gray-800">
         {takeForm.map((form, index) => (
           <>
             <h1 key={index} className="break-words w-full max-w-2xl">
@@ -37,7 +37,7 @@ export function CopyForm({ takeForm, setValue }) {
           </>
         ))}
         <button className='border-solid hover:cursor-pointer transition ease-in-out duration-300
-        hover:bg-gray-900 hover:bg-opacity-10 hover:text-white rounded-lg w-full p-1 border-2 
+        hover:bg-gray-900 hover:bg-opacity-50 hover:text-white rounded-lg w-full p-1 border-2 
           items-center text-center 
           align-middle' onClick={copyText}>
           Копировать

@@ -46,7 +46,7 @@ export function App() {
         bg-gradient-to-tr from-black to-gray-600
         place-items-center justify-items-center font-bold " key={5}>
         <ChangeScene />
-        <h1 className="absolute bottom-0 opacity-70 text-white mb-2 rounded-full p-2">Created By <a href="https://t.me/themm_s" className="underline text-blue-400 hover:text-white duration-150">Themms (Telegram)</a></h1>
+        <h1 className="absolute bottom-0 opacity-70 text-white mb-2 rounded-full p-2">Created By <a className="text-blue-400">themm_s (Discord)</a></h1>
       </div>
     </>
   );

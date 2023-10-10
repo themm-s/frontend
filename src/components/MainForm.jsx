@@ -82,7 +82,7 @@ export const Form = ({ setValue, takeForm }) => {
         align-middle
         place-items-center justify-items-center font-bold rounded-xl"
     >
-      <div className='rounded-md w-full h-full p-2'>
+      <div className='rounded-md w-full xl:w-5/6 h-full p-2'>
         <ul className="flex flex-col text-gray-200 justify-around h-1/2 font-black 
         shadow-xl shadow-gray-800 m-3 p-5 rounded-xl">
           {takeForm.map((form, index) => (

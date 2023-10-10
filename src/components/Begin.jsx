@@ -72,7 +72,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
           })}
         </ul>
         <h5 className="absolute text-xs bottom-0 opacity-70 mb-2 rounded-full p-2">
-          При возникновении ошибок писать в тг <a href="https://t.me/themm_s" className="underline text-blue-400 hover:text-white duration-150">Themms</a>
+          При возникновении ошибок писать в дискорд <a className="text-blue-400">themm_s</a>
         </h5>
       </div>
       <Button
