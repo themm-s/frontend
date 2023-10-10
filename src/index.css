@@ -22,7 +22,3 @@ html {
     transform: translateY(-10px);
   }
 }
-
-#updates:hover {
-  animation: none;
-}
