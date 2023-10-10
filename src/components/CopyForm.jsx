@@ -28,11 +28,11 @@ export function CopyForm({ takeForm, setValue }) {
               {index + 1}. {form.text}
               <button
                 type="text"
-                className="break-words justify-end items-end text-end"
+                className={`justify-start items-start text-start break-words ${index == 3 && length > 50 ? "w-full" : ""}`}
               >
                 {form.value}
               </button>
-            </h1>
+            </h1 >
             <br />
           </>
         ))}
@@ -48,7 +48,7 @@ export function CopyForm({ takeForm, setValue }) {
         bg-opacity-50 hover:bg-gray-900 hover:text-white mt-5 shadow-md shadow-gray-800 bg-gray-600 p-2 
         hover:cursor-pointer' onClick={repeatForm} icon={faRepeat} />
         {showText && <p className="text-center">Текст скопирован!</p>}
-      </div>
+      </div >
     </>
   );
 };

@@ -91,7 +91,7 @@ export const Form = ({ setValue, takeForm }) => {
               <button
                 key={index}
                 type="text"
-                className="justify-end items-end text-end"
+                className={`justify-start items-start text-start break-words ${index == 3 && length > 50 ? "w-full" : ""}`}
               >
                 {form.value}
               </button>
