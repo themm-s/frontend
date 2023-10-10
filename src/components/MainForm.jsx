@@ -112,12 +112,12 @@ export const Form = ({ setValue, takeForm }) => {
             placeholder={placeHolder[indexForm]?.text}
           />
           <div className="flex w-1/2 gap-3">
-            <button className="w-full hover:bg-gray-400 shadow-lg shadow-gray-800 hover:-translate-x-1 bg-white 
+            <button className="w-full hover:bg-gray-400 shadow-lg shadow-gray-700 hover:-translate-x-1 bg-white 
             transition duration-300 bg-opacity-20 rounded-md p-1 
         items-center justify-center" onClick={() => backButton()}>
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
-            <button className="hover:bg-gray-400 hover:translate-x-1 shadow-lg shadow-gray-800 bg-white 
+            <button className="hover:bg-gray-400 hover:translate-x-1 shadow-lg shadow-gray-700 bg-white 
             transition duration-300 bg-opacity-20 rounded-md ml-auto w-full p-1 
         items-center" onClick={handleButtonClick(indexForm)}>
               <FontAwesomeIcon icon={faArrowRight} />
