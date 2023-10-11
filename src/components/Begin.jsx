@@ -67,7 +67,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
         },
         body: JSON.stringify({
           sender: sender,
-          offer: offer
+          offer: offer,
         })
       });
     } catch (e) {
