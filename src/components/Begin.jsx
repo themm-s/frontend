@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Button from "./Button/Button";
 import { updates } from "../constants";
 import { Input } from "./Input/Input";
+import axios from "axios";
 
 
 export const Begin = ({ setValue, setTakeForm }) => {
@@ -56,17 +57,19 @@ export const Begin = ({ setValue, setTakeForm }) => {
     }
   }
 
-  const sendOffer = async () => {
+  const sendOffer = () => {
     sendTimeout();
     try {
-      await fetch('https://unionreportbackend.onrender.com/offer', {
+      fetch('https://union-report.netlify.app/offer', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
+          "Allow-Credentials": true,
+          "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify({
           sender: sender,
-          offer: offer,
+          offer: offer
         })
       });
     } catch (e) {
@@ -76,7 +79,6 @@ export const Begin = ({ setValue, setTakeForm }) => {
     refOfferSecond.current.value = '';
     setOffer('');
     setSender('');
-
   };
 
   const sendTimeout = () => {
