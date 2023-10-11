@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Button from "./Button/Button";
 import { updates } from "../constants";
@@ -8,6 +8,10 @@ import { Input } from "./Input/Input";
 
 export const Begin = ({ setValue, setTakeForm }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [sendingAnimation, setSendingAnimation] = useState(false);
+  const [sending, setSend] = useState(false);
+  const refOffer = useRef(null);
+  const refOfferSecond = useRef(null);
   const [offer, setOffer] = useState("");
   const [sender, setSender] = useState("");
   const admin = [
@@ -53,7 +57,8 @@ export const Begin = ({ setValue, setTakeForm }) => {
   }
 
   const sendOffer = async () => {
-    fetch('https://unionreportbackend.onrender.com/offer', {
+    sendTimeout();
+    await fetch('https://unionreportbackend.onrender.com/offer', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -63,7 +68,27 @@ export const Begin = ({ setValue, setTakeForm }) => {
         offer: offer
       })
     });
+    refOffer.current.value = '';
+    refOfferSecond.current.value = '';
+
   };
+
+  const sendTimeout = () => {
+    setSendingAnimation(true);
+    setTimeout(() => {
+      setSend(true);
+    }, 1300);
+    setTimeout(() => {
+      setSendingAnimation(false);
+    }, 1900);
+    setTimeout(() => {
+      setSend(false);
+    }, 2700);
+  };
+
+  useEffect(() => {
+    console.log(offer, sender);
+  }, [offer, sender]);
 
   return (
     <motion.div
@@ -110,16 +135,23 @@ export const Begin = ({ setValue, setTakeForm }) => {
         Заявка на разбан
       </Button>
       <div className="absolute p-4 bg-opacity-5 m-5 text-center rounded bg-white bottom-0 left-0 w-1/6 border">
-        <p className="text-center text-white mb-3">Есть предложения? Пиши</p>
+        {sending
+          ? <p className={`text-white mb-3 transition ${sendingAnimation ? 'opacity-100' : 'opacity-0'} duration-200`}>Форма отправлена <br />Cпасибо за предложение!</p>
+          : <p className={`text-center transition ${sendingAnimation ? 'opacity-0' : 'opacity-100'} duration-500 text-white mb-3`}>Есть предложения? <br /> Пиши свои идеи!</p>
+        }
         <form className="space-y-4">
           <Input
             placeholder="Ваш ник"
+            value={sender}
             onInput={event => setSender(event.target.value)}
+            offer={refOffer}
           />
           <Input
             placeholder="Предложение"
+            value={offer}
             onInput={event => setOffer(event.target.value)}
             className="h-24"
+            offer={refOfferSecond}
           />
         </form>
         <button onClick={sendOffer} className="mt-3 w-1/2 bg-black font-bold break-words bg-opacity-70 hover:bg-opacity-50 text-white p-1 rounded">
