@@ -58,16 +58,20 @@ export const Begin = ({ setValue, setTakeForm }) => {
 
   const sendOffer = async () => {
     sendTimeout();
-    await fetch('https://unionreportbackend.onrender.com/offer', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        sender: sender,
-        offer: offer,
-      })
-    });
+    try {
+      await fetch('https://unionreportbackend.onrender.com/offer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          sender: sender,
+          offer: offer,
+        })
+      });
+    } catch (e) {
+      console.error(e);
+    }
     refOffer.current.value = '';
     refOfferSecond.current.value = '';
     setOffer('');
