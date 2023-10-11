@@ -53,19 +53,18 @@ export const Begin = ({ setValue, setTakeForm }) => {
     }
   }
 
-  const sendOffer = () => {
-    axios.post('https://unionreportbackend.onrender.com/offer', {
-      offer: offer,
-      sender: sender,
-    }, {
+  const sendOffer = async () => {
+    fetch('https://unionreportbackend.onrender.com/offer', {
+      method: 'POST',
       headers: {
-        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
       },
+      body: JSON.stringify({
+        sender: sender,
+        offer: offer
+      })
     });
   };
-
-  sendOffer();
 
   return (
     <motion.div
@@ -116,12 +115,14 @@ export const Begin = ({ setValue, setTakeForm }) => {
         <form className="space-y-4">
           <Input
             placeholder="Ваш ник"
+            onInput={event => setSender(event.target.value)}
           />
           <Input
             placeholder="Предложение"
+            onInput={event => setOffer(event.target.value)}
           />
         </form>
-        <button className="mt-3 w-1/2 bg-black break-words bg-opacity-70 hover:bg-opacity-50 text-white p-1 rounded">
+        <button onClick={sendOffer} className="mt-3 w-1/2 bg-black break-words bg-opacity-70 hover:bg-opacity-50 text-white p-1 rounded">
           Отправить
         </button>
       </div>
