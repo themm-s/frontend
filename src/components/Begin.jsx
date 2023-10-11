@@ -60,7 +60,6 @@ export const Begin = ({ setValue, setTakeForm }) => {
     sendTimeout();
     try {
       await fetch('https://unionreportbackend.onrender.com/offer', {
-        mode: 'no-cors',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
