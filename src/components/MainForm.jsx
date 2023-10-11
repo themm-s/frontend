@@ -82,16 +82,17 @@ export const Form = ({ setValue, takeForm }) => {
         align-middle
         place-items-center justify-items-center font-bold rounded-xl"
     >
-      <div className='rounded-md w-full xl:w-5/6 h-full p-2'>
-        <ul className="flex flex-col text-gray-200 justify-around h-1/2 font-black 
-        shadow-xl shadow-gray-800 m-3 p-5 rounded-xl">
+      <div className='rounded-md w-full xl:w-3/6 h-full p-2'>
+        <ul className="flex flex-col border shadow-lr text-gray-200 justify-around h-1/2 font-black
+        shadow-gray-800 m-3 p-5 rounded-xl">
           {takeForm.map((form, index) => (
             <li key={index}>
               {index + 1}. {form.text}
               <button
                 key={index}
                 type="text"
-                className={`justify-start items-start text-start break-words ${index == 3 && length > 50 ? "w-full" : ""}`}
+                onClick={() => console.log(index)}
+                className={`justify-start items-start text-start ${index == 3 ? 'w-5/6 overflow-hidden' : ''}`}
               >
                 {form.value}
               </button>

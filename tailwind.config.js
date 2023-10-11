@@ -7,7 +7,11 @@ export default {
     './components/**/*.{html,js}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'lr': '0px 0px 10px 10px rgba(0, 0, 0, 0.2)',
+      }
+    },
   },
   plugins: [],
-}
+};
