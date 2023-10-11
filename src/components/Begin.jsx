@@ -60,7 +60,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
   const sendOffer = () => {
     sendTimeout();
     try {
-      fetch('https://union-report.netlify.app/offer', {
+      fetch('https://unionreportbackend.onrender.com/offer', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
