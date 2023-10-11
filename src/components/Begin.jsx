@@ -88,10 +88,6 @@ export const Begin = ({ setValue, setTakeForm }) => {
     }, 2000);
   };
 
-  useEffect(() => {
-    console.log(offer, sender);
-  }, [offer, sender]);
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
