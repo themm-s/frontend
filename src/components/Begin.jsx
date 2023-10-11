@@ -3,10 +3,14 @@ import { useState } from "react";
 
 import Button from "./Button/Button";
 import { updates } from "../constants";
+import { Input } from "./Input/Input";
+import axios from "axios";
 
 
 export const Begin = ({ setValue, setTakeForm }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [offer, setOffer] = useState("");
+  const [sender, setSender] = useState("");
   const admin = [
     { text: 'Ник Администратора: ', value: '' },
     { text: 'STEAMID Администратора: ', value: '' },
@@ -48,6 +52,20 @@ export const Begin = ({ setValue, setTakeForm }) => {
       setCurrentIndex(currentIndex => currentIndex = 0);
     }
   }
+
+  const sendOffer = () => {
+    axios.post('https://unionreportbackend.onrender.com/offer', {
+      offer: offer,
+      sender: sender,
+    }, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      },
+    });
+  };
+
+  sendOffer();
 
   return (
     <motion.div
@@ -93,6 +111,20 @@ export const Begin = ({ setValue, setTakeForm }) => {
       >
         Заявка на разбан
       </Button>
+      <div className="absolute p-4 bg-opacity-5 m-5 text-center rounded bg-white bottom-0 left-0 w-1/6 border">
+        <p className="text-center text-white mb-3">Есть предложения? Пиши</p>
+        <form className="space-y-4">
+          <Input
+            placeholder="Ваш ник"
+          />
+          <Input
+            placeholder="Предложение"
+          />
+        </form>
+        <button className="mt-3 w-1/2 bg-black break-words bg-opacity-70 hover:bg-opacity-50 text-white p-1 rounded">
+          Отправить
+        </button>
+      </div>
     </motion.div>
   );
 };
