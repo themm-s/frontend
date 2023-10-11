@@ -4,7 +4,6 @@ import { useState } from "react";
 import Button from "./Button/Button";
 import { updates } from "../constants";
 import { Input } from "./Input/Input";
-import axios from "axios";
 
 
 export const Begin = ({ setValue, setTakeForm }) => {
@@ -120,9 +119,10 @@ export const Begin = ({ setValue, setTakeForm }) => {
           <Input
             placeholder="Предложение"
             onInput={event => setOffer(event.target.value)}
+            className="h-24"
           />
         </form>
-        <button onClick={sendOffer} className="mt-3 w-1/2 bg-black break-words bg-opacity-70 hover:bg-opacity-50 text-white p-1 rounded">
+        <button onClick={sendOffer} className="mt-3 w-1/2 bg-black font-bold break-words bg-opacity-70 hover:bg-opacity-50 text-white p-1 rounded">
           Отправить
         </button>
       </div>

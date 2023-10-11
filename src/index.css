@@ -22,3 +22,7 @@ html {
     transform: translateY(-10px);
   }
 }
+
+#form {
+  white-space: pre-wrap;
+}
