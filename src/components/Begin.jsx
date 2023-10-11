@@ -77,13 +77,13 @@ export const Begin = ({ setValue, setTakeForm }) => {
     setSendingAnimation(true);
     setTimeout(() => {
       setSend(true);
-    }, 1300);
+    }, 750);
     setTimeout(() => {
       setSendingAnimation(false);
     }, 1900);
     setTimeout(() => {
       setSend(false);
-    }, 2700);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -136,8 +136,8 @@ export const Begin = ({ setValue, setTakeForm }) => {
       </Button>
       <div className="absolute p-4 bg-opacity-5 m-5 text-center rounded bg-white bottom-0 left-0 w-1/6 border">
         {sending
-          ? <p className={`text-white mb-3 transition ${sendingAnimation ? 'opacity-100' : 'opacity-0'} duration-200`}>Форма отправлена <br />Cпасибо за предложение!</p>
-          : <p className={`text-center transition ${sendingAnimation ? 'opacity-0' : 'opacity-100'} duration-500 text-white mb-3`}>Есть предложения? <br /> Пиши свои идеи!</p>
+          ? <p className={` mb-3 transition ${sendingAnimation ? 'opacity-100 text-green-500' : 'opacity-0'} duration-200`}>Форма отправлена <br />Cпасибо за предложение!</p>
+          : <p className={`text-center text-white transition ${sendingAnimation ? 'opacity-0' : 'opacity-100'} duration-500 text-white mb-3`}>Есть предложения? <br /> Пиши свои идеи!</p>
         }
         <form className="space-y-4">
           <Input
