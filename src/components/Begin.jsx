@@ -70,6 +70,8 @@ export const Begin = ({ setValue, setTakeForm }) => {
     });
     refOffer.current.value = '';
     refOfferSecond.current.value = '';
+    setOffer('');
+    setSender('');
 
   };
 
@@ -103,6 +105,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
         align-middle
         place-items-center justify-items-center font-bold rounded-xl"
     >
+      <h1 className="hidden md:block absolute top-5 text-8xl opacity-70 text-white mb-2 rounded-full p-2"><a className="text-[#fe7366]">Union</a>Report</h1>
       <div id="updates" className="absolute text-center text-lg rounded border m-5 p-2 text-gray-200 top-0 left-0 w-1/2 md:w-1/6 shadow-xl h-1/3">
         <h1>Список недавних обновлений</h1>
         <ul className="mt-5 text-sm space-y-1">
@@ -113,7 +116,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
           })}
         </ul>
         <h5 className="absolute text-xs bottom-0 opacity-70 mb-2 rounded-full p-2">
-          При возникновении ошибок писать в дискорд <a className="text-blue-400">themm_s</a>
+          При возникновении ошибок писать в предложения ниже
         </h5>
       </div>
       <Button
