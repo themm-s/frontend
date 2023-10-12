@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Button from "./Button/Button";
 import { updates } from "../constants";
 import { Input } from "./Input/Input";
+import axios from "axios";
 
 
 export const Begin = ({ setValue, setTakeForm }) => {
@@ -56,13 +57,22 @@ export const Begin = ({ setValue, setTakeForm }) => {
     }
   }
 
-  const sendOffer = async () => {
+  const sendOffer = () => {
     sendTimeout();
     try {
+<<<<<<< HEAD
       await fetch('https://unionreportbackend.onrender.com/offer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
+=======
+      fetch('https://unionreportbackend.onrender.com/offer', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+          "Allow-Credentials": true,
+          "Access-Control-Allow-Origin": "*"
+>>>>>>> refs/remotes/origin/unionreport
         },
         body: JSON.stringify({
           sender: sender,
@@ -76,7 +86,6 @@ export const Begin = ({ setValue, setTakeForm }) => {
     refOfferSecond.current.value = '';
     setOffer('');
     setSender('');
-
   };
 
   const sendTimeout = () => {
@@ -91,10 +100,6 @@ export const Begin = ({ setValue, setTakeForm }) => {
       setSend(false);
     }, 2000);
   };
-
-  useEffect(() => {
-    console.log(offer, sender);
-  }, [offer, sender]);
 
   return (
     <motion.div
