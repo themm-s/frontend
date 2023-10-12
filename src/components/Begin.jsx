@@ -60,19 +60,10 @@ export const Begin = ({ setValue, setTakeForm }) => {
   const sendOffer = () => {
     sendTimeout();
     try {
-<<<<<<< HEAD
-      await fetch('https://unionreportbackend.onrender.com/offer', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-=======
       fetch('https://unionreportbackend.onrender.com/offer', {
         method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          "Allow-Credentials": true,
-          "Access-Control-Allow-Origin": "*"
->>>>>>> refs/remotes/origin/unionreport
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           sender: sender,
