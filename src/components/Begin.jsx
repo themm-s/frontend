@@ -63,7 +63,9 @@ export const Begin = ({ setValue, setTakeForm }) => {
       fetch('https://unionreportbackend.onrender.com/offer', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
+          "Allow-Credentials": true,
+          "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify({
           sender: sender,
