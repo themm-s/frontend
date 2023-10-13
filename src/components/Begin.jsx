@@ -61,7 +61,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
 
   const getOffer = async () => {
     try {
-      const response = await fetch('http://localhost:8000/getoffers');
+      const response = await fetch('https://unionreportbackend.onrender.com/getoffers');
       const data = await response.json();
       setError(false);
       setUserOffers(data);
