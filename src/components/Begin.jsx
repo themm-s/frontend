@@ -79,7 +79,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
   const sendOffer = () => {
     sendTimeout();
     try {
-      fetch('http://localhost:8000/offer', {
+      fetch('https://unionreportbackend.onrender.com/offer', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
