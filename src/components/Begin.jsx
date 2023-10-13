@@ -68,7 +68,6 @@ export const Begin = ({ setValue, setTakeForm }) => {
     } catch (e) {
       console.error(e);
       setError(true);
-      console.log(error);
     }
   };
 
@@ -76,10 +75,10 @@ export const Begin = ({ setValue, setTakeForm }) => {
     getOffer();
   }, []);
 
-  const sendOffer = () => {
+  const sendOffer = async () => {
     sendTimeout();
     try {
-      fetch('https://unionreportbackend.onrender.com/offer', {
+      const response = await fetch('https://unionreportbackend.onrender.com/offer', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -91,6 +90,9 @@ export const Begin = ({ setValue, setTakeForm }) => {
           offer: offer
         })
       });
+      if (!response.ok) {
+        throw new Error('Ошибка отправки запроса');
+      }
     } catch (e) {
       console.error(e);
     }
