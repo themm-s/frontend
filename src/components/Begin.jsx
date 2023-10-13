@@ -8,6 +8,7 @@ import axios from "axios";
 
 
 export const Begin = ({ setValue, setTakeForm }) => {
+  const [error, setError] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sendingAnimation, setSendingAnimation] = useState(false);
   const [sending, setSend] = useState(false);
@@ -15,6 +16,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
   const refOfferSecond = useRef(null);
   const [offer, setOffer] = useState("");
   const [sender, setSender] = useState("");
+  const [userOffers, setUserOffers] = useState([]);
   const admin = [
     { text: 'Ник Администратора: ', value: '' },
     { text: 'STEAMID Администратора: ', value: '' },
@@ -57,10 +59,27 @@ export const Begin = ({ setValue, setTakeForm }) => {
     }
   }
 
+  const getOffer = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/getoffers');
+      const data = await response.json();
+      setError(false);
+      setUserOffers(data);
+    } catch (e) {
+      console.error(e);
+      setError(true);
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getOffer();
+  }, []);
+
   const sendOffer = () => {
     sendTimeout();
     try {
-      fetch('https://unionreportbackend.onrender.com/offer', {
+      fetch('http://localhost:8000/offer', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -107,8 +126,15 @@ export const Begin = ({ setValue, setTakeForm }) => {
         align-middle
         place-items-center justify-items-center font-bold rounded-xl"
     >
-      <h1 className="hidden md:block absolute top-5 text-8xl opacity-70 text-white mb-2 rounded-full p-2"><a className="text-[#fe7366]">Union</a>Report</h1>
-      <div id="updates" className="absolute text-center text-lg rounded border m-5 p-2 text-gray-200 top-0 left-0 w-1/2 md:w-1/6 shadow-xl h-1/3">
+      <h1 className="hidden xl:block absolute top-5 text-8xl opacity-70 text-white mb-2 
+      rounded-full p-2">
+        <a className="text-[#fe7366]">
+          Union
+        </a>
+        Report
+      </h1>
+      <div id="updates" className="absolute text-center text-lg rounded border m-5
+      p-2 text-gray-200 top-0 w-2/3 md:w-1/2 md:left-0 xl:left-0 xl:w-1/4 shadow-xl h-1/3">
         <h1>Список недавних обновлений</h1>
         <ul className="mt-5 text-sm space-y-1">
           {updates.map((update, index) => {
@@ -120,6 +146,26 @@ export const Begin = ({ setValue, setTakeForm }) => {
         <h5 className="absolute text-xs bottom-0 opacity-70 mb-2 rounded-full p-2">
           При возникновении ошибок писать в предложения ниже
         </h5>
+      </div>
+      <div className="absolute hidden md:block text-center text-lg rounded border 
+      m-5 p-2 pb-5 overflow-hidden truncate text-gray-200 
+      top-20 right-0 w-1/3 md:w-1/4 shadow-xl">
+        <h1>Тут будут ваши предложения по сайту :D</h1>
+        <h1 className="text-green-600">(Которые приняты в работу)</h1>
+        {error ? <h1 className="mt-5 text-red-600">Ошибка сервера :(</h1> : ''}
+        {userOffers.map((offer, index) => {
+          return (
+            <>
+              {!error ?
+                <div className="mt-2">
+                  <h5>Предложил {offer.sender}</h5>
+                  <h5>{offer.offer}</h5>
+                </div>
+                :
+                ''}
+            </>
+          );
+        })}
       </div>
       <Button
         onClick={changeIndex}
@@ -139,10 +185,15 @@ export const Begin = ({ setValue, setTakeForm }) => {
       >
         Заявка на разбан
       </Button>
-      <div className="absolute p-4 bg-opacity-5 m-5 text-center rounded bg-white bottom-0 left-0 w-1/6 border">
+      <div className="absolute p-4 bg-opacity-5 m-5 text-center rounded bg-white bottom-7 
+      left-0 md:w-1/2 xl:w-1/5 border">
         {sending
-          ? <p className={` mb-3 transition ${sendingAnimation ? 'opacity-100 text-green-500' : 'opacity-0'} duration-200`}>Форма отправлена <br />Cпасибо за предложение!</p>
-          : <p className={`text-center text-white transition ${sendingAnimation ? 'opacity-0' : 'opacity-100'} duration-500 text-white mb-3`}>Есть предложения? <br /> Пиши свои идеи!</p>
+          ? <p className={` mb-3 transition 
+          ${sendingAnimation ? 'opacity-100 text-green-500' : 'opacity-0'} 
+          duration-200`}>Форма отправлена <br />Cпасибо за предложение!</p>
+          : <p className={`text-center text-white transition 
+          ${sendingAnimation ? 'opacity-0' : 'opacity-100'} duration-500 text-white mb-3`}>
+            Есть предложения? <br /> Пиши свои идеи!</p>
         }
         <form className="space-y-4">
           <Input
@@ -159,7 +210,8 @@ export const Begin = ({ setValue, setTakeForm }) => {
             offer={refOfferSecond}
           />
         </form>
-        <button onClick={sendOffer} className="mt-3 w-1/2 bg-black font-bold break-words bg-opacity-70 hover:bg-opacity-50 text-white p-1 rounded">
+        <button onClick={sendOffer} className="mt-3 w-1/2 bg-black font-bold break-words 
+        bg-opacity-70 hover:bg-opacity-50 text-white p-1 rounded">
           Отправить
         </button>
       </div>

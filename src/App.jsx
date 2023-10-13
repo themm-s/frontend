@@ -46,7 +46,7 @@ export function App() {
         bg-gradient-to-tr from-black to-gray-600
         place-items-center justify-items-center font-bold " key={5}>
         <a href="https://unionrp.info" className="absolute top-0 right-0">
-          <img className="logo" src="https://unionrp.info/static/images/logo.webp" alt="Union RP" height="50" />
+          <img className="hidden md:block" src="https://unionrp.info/static/images/logo.webp" alt="Union RP" height="50" />
         </a>
         <ChangeScene />
         <h1 className="absolute bottom-0 opacity-70 text-white mb-2 rounded-full p-2">Created By <a className="text-blue-400">themm_s (Discord)</a></h1>
