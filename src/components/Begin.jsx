@@ -64,7 +64,9 @@ export const Begin = ({ setValue, setTakeForm }) => {
       const response = await fetch('https://unionreportbackend.onrender.com/getoffers');
       const data = await response.json();
       setError(false);
-      setUserOffers(data);
+      if (data != data) {
+        setUserOffers(data);
+      }
     } catch (e) {
       console.error(e);
       setError(true);
@@ -73,7 +75,11 @@ export const Begin = ({ setValue, setTakeForm }) => {
 
   useEffect(() => {
     getOffer();
-  }, [userOffers]);
+  }, []);
+
+  setTimeout(() => {
+    getOffer();
+  }, 300000);
 
   const sendOffer = async () => {
     sendTimeout();
