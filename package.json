@@ -1,7 +1,7 @@
 {
   "name": "unionreport",
   "private": false,
-  "version": "1.6.2",
+  "version": "1.8.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -24,7 +24,8 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "react-select": "^5.7.2",
-    "redux": "^4.2.1"
+    "redux": "^4.2.1",
+    "socket.io-client": "^4.7.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

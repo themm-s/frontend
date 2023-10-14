@@ -4,7 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import Button from "./Button/Button";
 import { updates } from "../constants";
 import { Input } from "./Input/Input";
-import axios from "axios";
+import { io } from "socket.io-client";
+
+const socket = io("https://unionreportbackend.onrender.com");
+
 
 
 export const Begin = ({ setValue, setTakeForm }) => {
@@ -44,6 +47,14 @@ export const Begin = ({ setValue, setTakeForm }) => {
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
   ];
 
+  socket.on("message", (message) => {
+    setUserOffers(message);
+  });
+
+  socket.on('newOffer', (offer) => {
+    setUserOffers(offer);
+  });
+
   function changeIndex() {
     if (event.target.value == 'admin') {
       setTakeForm(admin);
@@ -71,22 +82,13 @@ export const Begin = ({ setValue, setTakeForm }) => {
     }
   };
 
-  useEffect(() => {
-    getOffer();
-  }, []);
-
-  setTimeout(() => {
-    getOffer();
-  }, 300000);
-
   const sendOffer = async () => {
     sendTimeout();
     try {
-      const response = await fetch('https://unionreportbackend.onrender.com/offer', {
+      await fetch('https://unionreportbackend.onrender.com/offer', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
-          "Allow-Credentials": true,
           "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify({
@@ -94,9 +96,6 @@ export const Begin = ({ setValue, setTakeForm }) => {
           offer: offer
         })
       });
-      if (!response.ok) {
-        throw new Error('Ошибка отправки запроса');
-      }
     } catch (e) {
       console.error(e);
     }
@@ -105,6 +104,10 @@ export const Begin = ({ setValue, setTakeForm }) => {
     setOffer('');
     setSender('');
   };
+
+  useEffect(() => {
+    getOffer();
+  }, []);
 
   const sendTimeout = () => {
     setSendingAnimation(true);
