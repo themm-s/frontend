@@ -64,9 +64,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
       const response = await fetch('https://unionreportbackend.onrender.com/getoffers');
       const data = await response.json();
       setError(false);
-      if (data != data) {
-        setUserOffers(data);
-      }
+      setUserOffers(data);
     } catch (e) {
       console.error(e);
       setError(true);
