@@ -73,7 +73,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
 
   useEffect(() => {
     getOffer();
-  }, []);
+  }, [userOffers]);
 
   const sendOffer = async () => {
     sendTimeout();
