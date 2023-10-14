@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import Button from "./Button/Button";
-import { updates } from "../constants";
+import { prod, test, updates } from "../constants";
 import { Input } from "./Input/Input";
 import { io } from "socket.io-client";
 
-const socket = io("https://unionreportbackend.onrender.com");
+const socket = io(prod);
 
 
 
@@ -72,7 +72,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
 
   const getOffer = async () => {
     try {
-      const response = await fetch('https://unionreportbackend.onrender.com/getoffers');
+      const response = await fetch(`${prod}/getoffers`);
       const data = await response.json();
       setError(false);
       setUserOffers(data);
@@ -85,7 +85,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
   const sendOffer = async () => {
     sendTimeout();
     try {
-      await fetch('https://unionreportbackend.onrender.com/offer', {
+      await fetch(`${prod}/offer`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
