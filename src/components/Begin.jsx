@@ -45,12 +45,20 @@ export const Begin = ({ setValue, setTakeForm }) => {
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
   ];
 
+  socket.on('connect', () => {
+    setError(false);
+  });
+
   socket.on('deleteoffer', (offer) => {
     setUserOffers(offer);
   });
 
   socket.on('newOffer', (offer) => {
     setUserOffers(offer);
+  });
+
+  socket.on('disconnect', () => {
+    setError(true);
   });
 
   function changeIndex() {
