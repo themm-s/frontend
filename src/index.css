@@ -6,23 +6,6 @@ html {
   background-color: #000;
 }
 
-#updates {
-  transition: all;
-  animation: update 3s infinite ease-out;
-}
-
-@keyframes update {
-  0% {
-    transform: translateY(-10px);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-10px);
-  }
-}
-
 #form {
   white-space: pre-wrap;
 }
