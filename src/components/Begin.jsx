@@ -8,8 +8,6 @@ import { io } from "socket.io-client";
 
 const socket = io(prod);
 
-
-
 export const Begin = ({ setValue, setTakeForm }) => {
   const [error, setError] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -47,8 +45,8 @@ export const Begin = ({ setValue, setTakeForm }) => {
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
   ];
 
-  socket.on("message", (message) => {
-    setUserOffers(message);
+  socket.on('deleteoffer', (offer) => {
+    setUserOffers(offer);
   });
 
   socket.on('newOffer', (offer) => {
