@@ -44,7 +44,7 @@ export function App() {
       <h1 className="absolute bottom-0 opacity-70 text-white mb-2 rounded-full p-2">
         Created By
         <a className="text-blue-400">
-          themm_s (Discord)
+          &nbsp; themm_s (Discord)
         </a>
       </h1>
     </AppDiv>
