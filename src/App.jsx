@@ -41,7 +41,12 @@ export function App() {
   return (
     <AppDiv>
       <ChangeScene />
-      <h1 className="absolute bottom-0 opacity-70 text-white mb-2 rounded-full p-2">Created By <a className="text-blue-400">themm_s (Discord)</a></h1>
+      <h1 className="absolute bottom-0 opacity-70 text-white mb-2 rounded-full p-2">
+        Created By
+        <a className="text-blue-400">
+          themm_s (Discord)
+        </a>
+      </h1>
     </AppDiv>
   );
 }
