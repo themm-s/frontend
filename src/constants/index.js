@@ -3,7 +3,8 @@ export const updates = [
   "Фикс ошибок",
   "Добавлена иконка сайта",
   "Добавлена форма предложений",
-  "Добавлена табличка по одобренным предложениям"
+  "Добавлена табличка по одобренным предложениям",
+  "Добавлены быстрые кнопки для перемещения на форум на странице копирования"
 ];
 
 export const admin = [
@@ -32,6 +33,12 @@ export const appeal = [
   { text: 'Док-ва вашей невиновности: ', value: '' },
   { text: 'Ссылка на ваш стим профиль: ', value: '' },
 ];
+
+export const styles = `flex mb-16 md:mb-0 text-gray-200 transition hover:-translate-y-2 
+duration-500 shadow-md mx-5 hover:shadow-2xl shadow-gray-700 border-black 
+ease-in-out hover:bg-gray-300 hover:bg-opacity-50 rounded-xl ml-2 
+h-[38px] w-50 p-5
+items-center justify-center`;
 
 export const test = "http://localhost:8000";
 export const prod = "https://unionreportbackend.onrender.com";

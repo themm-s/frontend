@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const CopyButton = ({ onClick, onClickIcon, icon }) => {
+export const CopyButton = ({ onClick, text, onClickIcon, icon }) => {
   return (
     <>
       <button className='border-solid hover:cursor-pointer transition ease-in-out duration-300
         hover:bg-gray-900 hover:bg-opacity-50 hover:text-white rounded-lg w-full p-1 border-2 
           items-center text-center 
           align-middle' onClick={onClick}>
-        Копировать
+        {text}
       </button>
       <FontAwesomeIcon className='flex m-auto w-15 rounded-full 
         transition transform hover:rotate-180 

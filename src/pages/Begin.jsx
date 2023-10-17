@@ -153,6 +153,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
       <Button
         onClick={changeIndex}
         value='player'
+        atag={false}
       >
         Жалоба на игрока
       </Button>

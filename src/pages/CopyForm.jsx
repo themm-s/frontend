@@ -2,18 +2,23 @@ import { faRepeat } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { CopyButton } from "../ui/CopyButton/CopyButton";
 import { CopyDiv } from "../components/CopyDiv/CopyDiv";
+import Button from "../ui/Button/Button";
 
 export function CopyForm({ takeForm, setValue }) {
-  const [showText, setShowText] = useState(false);
   const arrSort = takeForm.map((obj, index) => `${index + 1}. ${obj.text} ${obj.value}
 `);
+  const [text, setText] = useState('Копировать');
+
+  const Changetext = () => {
+    setText('Скопировано!');
+    setTimeout(() => {
+      setText('Копировать');
+    }, 2000);
+  };
 
   function copyText() {
     navigator.clipboard.writeText(arrSort.join(''));
-    setShowText(true);
-    setTimeout(() => {
-      setShowText(false);
-    }, 2000);
+    Changetext();
   };
 
   function repeatForm() {
@@ -44,8 +49,16 @@ export function CopyForm({ takeForm, setValue }) {
           onClick={copyText}
           onClickIcon={repeatForm}
           icon={faRepeat}
+          text={text}
         />
-        {showText && <p className="text-center">Текст скопирован!</p>}
+        <div className="flex justify-center">
+          <Button atag={true} className="cursor-pointer" onClick={() => window.open('https://f.unionrp.info/forums/applications_city2/post-thread', "_blank")}>
+            Форма С17
+          </Button>
+          <Button atag={true} className="cursor-pointer" onClick={() => window.open('https://f.unionrp.info/forums/applications_city2/post-thread', "_blank")}>
+            Форма С2
+          </Button>
+        </div>
       </CopyDiv>
     </>
   );
