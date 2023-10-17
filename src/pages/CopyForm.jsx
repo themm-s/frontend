@@ -52,7 +52,7 @@ export function CopyForm({ takeForm, setValue }) {
           text={text}
         />
         <div className="flex justify-center">
-          <Button atag={true} className="cursor-pointer" onClick={() => window.open('https://f.unionrp.info/forums/applications_city2/post-thread', "_blank")}>
+          <Button atag={true} className="cursor-pointer" onClick={() => window.open('https://f.unionrp.info/forums/applications_city17/post-thread', "_blank")}>
             Форма С17
           </Button>
           <Button atag={true} className="cursor-pointer" onClick={() => window.open('https://f.unionrp.info/forums/applications_city2/post-thread', "_blank")}>
