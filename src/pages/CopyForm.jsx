@@ -30,7 +30,9 @@ export function CopyForm({ takeForm, setValue }) {
               <button
                 key={index}
                 type="text"
-                className={`justify-start items-start text-start break-words ${index == 3 && length > 50 ? "w-full" : ""}`}
+                className={`justify-start items-start text-start break-words 
+                ${index == 3 && length > 50 ? "w-full" : ""
+                  }`}
               >
                 {form.value}
               </button>
