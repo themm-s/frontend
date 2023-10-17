@@ -44,7 +44,7 @@ export function App() {
       <h1 className="absolute bottom-0 opacity-70 text-white mb-2 rounded-full p-2">
         Created By
         <a className="text-blue-400">
-          &nbsp;themm_s (Discord) <a className="underline" href="https://yoomoney.ru/to/4100118407545324">Поддержать</a>
+          &nbsp;themm_s (Discord) <a className="underline text-yellow-300" href="https://yoomoney.ru/to/4100118407545324">Поддержать</a>
         </a>
       </h1>
     </AppDiv>
