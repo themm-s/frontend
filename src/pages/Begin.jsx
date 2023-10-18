@@ -8,7 +8,7 @@ import { BeginDiv } from "../components/BeginDiv/BeginDiv";
 import { OfferSection } from "../components/OfferSection/OfferSection";
 import { motion } from "framer-motion";
 
-const socket = io(prod);
+export const socket = io(prod);
 
 export const Begin = ({ setValue, setTakeForm }) => {
   const [error, setError] = useState(false);
