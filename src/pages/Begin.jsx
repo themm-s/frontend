@@ -6,6 +6,7 @@ import { Input } from "../ui/Input/Input";
 import { io } from "socket.io-client";
 import { BeginDiv } from "../components/BeginDiv/BeginDiv";
 import { OfferSection } from "../components/OfferSection/OfferSection";
+import { motion } from "framer-motion";
 
 const socket = io(prod);
 
@@ -105,14 +106,31 @@ export const Begin = ({ setValue, setTakeForm }) => {
 
   return (
     <BeginDiv>
-      <h1 className="hidden xl:block absolute top-5 text-8xl opacity-70 text-white mb-2 
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: .5,
+          delay: 0.5,
+          ease: [.37, 0, .6, .76]
+        }}
+        className="hidden xl:block absolute top-5 text-8xl opacity-70 text-white mb-2 
       rounded-full p-2">
         <a className="text-[#fe7366]">
           Union
         </a>
         Report
-      </h1>
-      <div id="updates" className="absolute text-center text-lg rounded border m-5
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: .6,
+          delay: 0.6,
+          ease: [.21, .2, .43, 1]
+        }}
+        id="updates"
+        className="absolute text-center text-lg rounded border m-5
       p-2 text-gray-200 top-0 w-2/3 md:w-1/2 md:left-0 xl:left-0 xl:w-1/4 shadow-xl h-1/3">
         <h1>Список недавних обновлений</h1>
         <ul className="mt-5 text-sm space-y-1">
@@ -125,7 +143,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
         <h5 className="absolute text-xs bottom-0 opacity-70 mb-2 rounded-full p-2">
           При возникновении ошибок писать в предложения ниже
         </h5>
-      </div>
+      </motion.div>
       <OfferSection>
         <h1>Тут будут ваши предложения по сайту :D</h1>
         <h1 className="text-green-600">(Которые приняты в работу)</h1>
@@ -163,7 +181,15 @@ export const Begin = ({ setValue, setTakeForm }) => {
       >
         Заявка на разбан
       </Button>
-      <div className="absolute p-4 bg-opacity-5 m-5 text-center rounded bg-white bottom-7 
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: .5,
+          delay: 0.5,
+          ease: [.37, 0, .6, .76]
+        }}
+        className="absolute p-4 bg-opacity-5 m-5 text-center rounded bg-white bottom-7 
       left-0 md:w-1/2 xl:w-1/5 border">
         {sending
           ? <p className={` mb-3 transition 
@@ -192,7 +218,7 @@ export const Begin = ({ setValue, setTakeForm }) => {
         bg-opacity-70 hover:bg-opacity-50 text-white p-1 rounded">
           Отправить
         </button>
-      </div>
+      </motion.div>
     </BeginDiv>
   );
 };

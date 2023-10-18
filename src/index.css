@@ -6,6 +6,27 @@ html {
   background-color: #000;
 }
 
+.button-begin {
+  transition-duration: 500ms;
+  animation: slide-in-blurred-left 1s cubic-bezier(.62,.02,.31,.99)
+}
+
+.button-begin:hover {
+  --tw-translate-y: -0.5rem/* -8px */;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes slide-in-blurred-left {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 #form {
   white-space: pre-wrap;
 }
