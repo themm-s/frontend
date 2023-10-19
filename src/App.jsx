@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { Begin } from "./pages/Begin";
-import { CopyForm } from "./pages/CopyForm";
-import { Form } from "./pages/MainForm";
+import { Begin } from "./components/Home/Begin";
+import { CopyForm } from "./components/Home/CopyForm";
+import { Form } from "./components/Home/MainForm";
 import { AppDiv } from "./components/AppDiv/AppDiv";
 
 export function App() {

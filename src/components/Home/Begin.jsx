@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
-import Button from "../ui/Button/Button";
-import { prod, test, updates, admin, appeal, player } from "../constants";
-import { Input } from "../ui/Input/Input";
+import Button from "../../ui/Button/Button";
+import { prod, test, updates, admin, appeal, player } from "../../constants";
+import { Input } from "../../ui/Input/Input";
 import { io } from "socket.io-client";
-import { BeginDiv } from "../components/BeginDiv/BeginDiv";
-import { OfferSection } from "../components/OfferSection/OfferSection";
+import { BeginDiv } from "../BeginDiv/BeginDiv";
+import { OfferSection } from "../OfferSection/OfferSection";
 import { motion } from "framer-motion";
 
 export const socket = io(prod);
