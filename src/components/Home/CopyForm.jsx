@@ -1,8 +1,8 @@
 import { faRepeat } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { CopyButton } from "../ui/CopyButton/CopyButton";
-import { CopyDiv } from "../components/CopyDiv/CopyDiv";
-import Button from "../ui/Button/Button";
+import { CopyButton } from "../../ui/CopyButton/CopyButton";
+import { CopyDiv } from "../CopyDiv/CopyDiv";
+import Button from "../../ui/Button/Button";
 
 export function CopyForm({ takeForm, setValue }) {
   const arrSort = takeForm.map((obj, index) => `${index + 1}. ${obj.text} ${obj.value}

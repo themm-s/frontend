@@ -2,7 +2,7 @@ import { faArrowLeft, faArrowRight, faRepeat } from "@fortawesome/free-solid-svg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { MainDiv } from "../components/MainDiv/MainDiv";
+import { MainDiv } from "../MainDiv/MainDiv";
 
 export const Form = ({ setValue, takeForm }) => {
   const [indexForm, setIndexForm] = useState(0);
