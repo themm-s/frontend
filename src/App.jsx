@@ -4,10 +4,13 @@ import { Begin } from "./components/Home/Begin";
 import { CopyForm } from "./components/Home/CopyForm";
 import { Form } from "./components/Home/MainForm";
 import { AppDiv } from "./components/AppDiv/AppDiv";
+import { TechWorks } from "./components/TechWorks/TechWorks";
+import { socket } from "./components/Home/Begin";
 
 export function App() {
 
   const [stageForm, setStageForm] = useState(0);
+  const [techWorks, setWorks] = useState(false);
   const [forms, setForms] = useState([
     { text: 'Ник: ', value: '' },
     { text: 'STEAMID: ', value: '' },
@@ -16,6 +19,10 @@ export function App() {
     { text: 'Док-ва: ', value: '' },
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
   ]);
+
+  socket.on('techWorks', (techWorks) => {
+    setWorks(techWorks);
+  });
 
   function ChangeScene() {
     const components = [
@@ -40,7 +47,12 @@ export function App() {
 
   return (
     <AppDiv>
-      <ChangeScene />
+      {
+        techWorks ?
+          <TechWorks />
+          :
+          <ChangeScene />
+      }
       <h1 className="absolute bottom-0 opacity-70 text-white mb-2 rounded-full p-2">
         Created By
         <a className="text-blue-400">

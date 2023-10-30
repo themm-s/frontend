@@ -37,12 +37,12 @@ export const Form = ({ setValue, takeForm }) => {
         newForms[index].value = inputValue;
       } else {
         console.log(undefined);
-      }
+      };
       setIndexForm(indexForm => indexForm + 1);
       if (indexForm > 4) {
         setIndexForm(0);
         setValue(2);
-      }
+      };
       setInputValue('');
     };
   };
