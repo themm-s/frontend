@@ -24,6 +24,7 @@ export function App() {
     if (stateTech !== techWorks) {
       setWorks(stateTech);
     }
+    return;
   });
 
   function ChangeScene() {
