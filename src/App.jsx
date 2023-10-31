@@ -20,8 +20,11 @@ export function App() {
     { text: 'Ссылка на ваш стим профиль: ', value: '' },
   ]);
 
-  socket.on('techWorks', (techWorks) => {
-    setWorks(techWorks);
+  socket.on('techWorks', (stateTech) => {
+    if (stateTech !== techWorks) {
+      setWorks(techWorks);
+    }
+    return;
   });
 
   function ChangeScene() {
