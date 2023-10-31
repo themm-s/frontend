@@ -22,9 +22,8 @@ export function App() {
 
   socket.on('techWorks', (stateTech) => {
     if (stateTech !== techWorks) {
-      setWorks(techWorks);
+      setWorks(stateTech);
     }
-    return;
   });
 
   function ChangeScene() {
