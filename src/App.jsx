@@ -6,9 +6,10 @@ import { Form } from "./components/Home/MainForm";
 import { AppDiv } from "./components/AppDiv/AppDiv";
 import { TechWorks } from "./components/TechWorks/TechWorks";
 import { socket } from "./components/Home/Begin";
+import { Preloader } from "./ui/Preloader/Preloader";
 
 export function App() {
-
+  const [loading, setLoading] = useState(true);
   const [stageForm, setStageForm] = useState(0);
   const [techWorks, setWorks] = useState(false);
   const [forms, setForms] = useState([
@@ -45,17 +46,25 @@ export function App() {
     return components[stageForm];
   }
 
+  function CheckWorks() {
+    if (techWorks) {
+      return <TechWorks />;
+    }
+    return <ChangeScene />;
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   useEffect(() => {
   }, [stageForm]);
 
   return (
     <AppDiv>
-      {
-        techWorks ?
-          <TechWorks />
-          :
-          <ChangeScene />
-      }
+      {loading ? <Preloader /> : <CheckWorks />}
       <h1 className="absolute bottom-0 opacity-70 text-white mb-2 rounded-full p-2">
         Created By
         <a className="text-blue-400">
