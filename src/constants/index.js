@@ -38,4 +38,4 @@ h-[38px] w-50 p-5
 items-center justify-center`;
 
 export const test = "http://localhost:8000";
-export const prod = "https://unionreportbackend.onrender.com";
+export const prod = "http://80.78.243.172:8000/getoffers";
